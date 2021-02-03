@@ -1,4 +1,12 @@
-
+#题目题解：
+把能被’X‘围住的’O‘全都变成X。
+Surrounded regions shouldn’t be on the border, which means that any 'O' on the border of the board are not flipped to 'X'
+即边界上的O不会被变成X，从而和他直接相邻，四个方向可以走到的O都是不会改变的
+#解题思路：
+所以我们就可以从边界上所有的O出发，把他们标记成别的符号Y 
+向四个方向出发，如果遇到O，就是相连的，也不会改变的，就标记成Y
+然后再遍历整个matrix，如果是O就代表被X围住的，就变成X
+如果是Y就是包围不住的，直接变回O
 ```java
 class Solution {
     private static final int[][] DIRECTIONS = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
