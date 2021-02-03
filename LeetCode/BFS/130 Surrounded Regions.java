@@ -1,26 +1,30 @@
 #题目题解：
-把能被’X‘围住的’O‘全都变成X。
+把能被’X‘围住的’O‘全都变成 X。
+
 Surrounded regions shouldn’t be on the border, which means that any 'O' on the border of the board are not flipped to 'X'
 即边界上的O不会被变成X，从而和他直接相邻，四个方向可以走到的O都是不会改变的
+
 #解题思路：
 所以我们就可以从边界上所有的O出发，把他们标记成别的符号Y 
 向四个方向出发，如果遇到O，就是相连的，也不会改变的，就标记成Y
 然后再遍历整个matrix，如果是O就代表被X围住的，就变成X
 如果是Y就是包围不住的，直接变回O
-```java
+
 class Solution {
     private static final int[][] DIRECTIONS = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
     public void solve(char[][] board) {
         if (board == null || board.length == 0 || board[0] == null || board[0].length == 0) return;
         int row = board.length;
         int col = board[0].length;
+        
         // Convert two-dimensional coordinates to one-dimensional coordinates 
         // And save it into the queue
         Queue<Integer> queue = new LinkedList<>(); 
+        
         // Traverse the border of the board and add 'O' into the queue as the start point
         // Change these points to 'Y'
-        
         for (int i = 0; i < row; i++) { // left + right
+            
             // the left border, which is the first col
             if (board[i][0] == 'O') {
                 queue.offer(i * col + 0);
@@ -34,7 +38,9 @@ class Solution {
         }
         // Beacuse the points on the corner have already change to 'Y'
         // We will not add the same point into queue twice.
+        
         for (int j = 0; j < col; j++) { // top + bottom
+            
             // the top border, which is the first row
             if (board[0][j] == 'O') {
                 queue.offer(0 * col + j);
@@ -77,4 +83,3 @@ class Solution {
         // Because, I just tarverse one point once, there is not overlap.
     }
 }
-```
