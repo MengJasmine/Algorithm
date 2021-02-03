@@ -1,5 +1,5 @@
 
-```
+```java
 class Solution {
     private static final int[][] DIRECTIONS = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
     public void solve(char[][] board) {
