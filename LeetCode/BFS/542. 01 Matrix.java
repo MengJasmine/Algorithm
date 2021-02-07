@@ -1,13 +1,15 @@
-题目大意：
+# 题目大意：
     matrix 里面只有 0 或 1，return 新的matrix，里面更新每个1到0的最短距离
-做题思路：
+# 做题思路：
     把所有0对应的坐标加到queue里，来更新每个1到0的最短路径
     level order 的遍历，所以是把0加入queue，先把一步能走的的位置都填入1，走一步都做完的，再走下一层，是两步的
-查重方式：
+## 查重方式：
    这题只有 0 和 1，遇到“1”我们就要计算它到0的距离
    但是这个1可以是没被遍历过的；也可以是遍历过，但最短路径就是1
    所以我们利用res[][]来辅助查重：
    如果对应res是0就代表没有遍历过的，可以做，不然已经是被填好的
+# Code
+```java
 class Solution {
     private final static int[][] DIRECTIONS = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
     // start from 0, and run bfs to find the 1, is just the shortest distance
@@ -50,3 +52,4 @@ class Solution {
         return res;
     }
 }
+```
