@@ -93,6 +93,7 @@ class Solution {
         return res;
     }
 }
+
 ```
 ## String.valueOf(curArr) 和 curArr.toString()的区别
  - arr.toString()一般用于的打印，转化成的是地址值
@@ -108,4 +109,7 @@ class Solution {
  ```
  public static String valueOf(Object obj){return (obj==null) ? "null" : obj.toString()};
  ```
+ 
+ # Follow Up: 1.改变 transform rule
+ 词语接龙 - 这个词只能转化成以它尾字母开头的词
  
